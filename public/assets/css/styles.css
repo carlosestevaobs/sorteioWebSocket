@@ -1,0 +1,145 @@
+* {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.main {
+  background: url('../images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+body.main > div,
+body.main > img {
+  margin-bottom: 5px;
+}
+
+button#draw {
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #007f00;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  animation: not-winner 0.8s infinite alternate;
+}
+
+button#draw:hover {
+  background-color: #001311;
+}
+
+.message {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  color: transparent;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: color 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.show-message {
+  color: #000;
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.hide-message {
+  color: transparent;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.logo-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  border: 4px solid #ffffff;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.logo-container:hover img {
+  transform: scale(1.1);
+}
+
+img#logo {
+  width: 200px;
+  border: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+
+.win::before,
+.lose::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.win::before {
+  background-color: rgba(7, 92, 27, 0.7);
+}
+
+.lose::before {
+  background-color: rgba(92, 7, 7, 0.7);
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+.spin-animation {
+  animation: spin 4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes decelerate {
+  0% {
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: rotate(0deg);
+  }
+}
+
+.stop-spin {
+  animation: decelerate 1s forwards;
+}
