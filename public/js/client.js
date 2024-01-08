@@ -20,7 +20,6 @@ function handleServerMessage(event) {
 }
 
 function setClientState(state, code = "") {
-  // Início da animação
   body.className = "main";
   messageDiv.classList.toggle("hide-message", true);
   logo.classList.toggle("stop-spin", false);

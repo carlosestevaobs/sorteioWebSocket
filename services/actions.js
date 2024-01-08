@@ -1,4 +1,10 @@
-function handleIncomingMessage(ws, msg, ACTIONS, wss) { 
+const ACTIONS = {
+    ADMIN: "admin",
+    DRAW: "draw",
+    CLIENT_COUNT_UPDATE: "clientCountUpdate",
+};
+
+function handleIncomingMessage(ws, msg, wss) {
     const data = JSON.parse(msg);
     const action = data.action;
 
@@ -29,7 +35,7 @@ function handleDraw(wss, confirmationCode, ACTIONS) {
     });
 }
 
-function updateAdminClientCount(wss, clients, WebSocket, ACTIONS) {
+function updateAdminClientCount(wss, WebSocket) {
     const clientCount = Array.from(wss.clients).filter(
         (client) => !client.isAdmin
     ).length;
@@ -46,4 +52,4 @@ function updateAdminClientCount(wss, clients, WebSocket, ACTIONS) {
     });
 }
 
-module.exports = { handleIncomingMessage, handleDraw, updateAdminClientCount };
+module.exports = { handleIncomingMessage, handleDraw, updateAdminClientCount, ACTIONS };

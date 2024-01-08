@@ -2,11 +2,6 @@ const express = require("express");
 const path = require("path");
 
 function configureRoutes(app) {
-    const ACTIONS = {
-        ADMIN: "admin",
-        DRAW: "draw",
-        CLIENT_COUNT_UPDATE: "clientCountUpdate",
-    };
 
     const publicPath = path.join(__dirname, "..", "public");
 
