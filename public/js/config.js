@@ -1,4 +1,5 @@
-const WS_URL = "ws://localhost:3000";
+// Lembrar de alterar para o endereço local adequado
+const WS_URL = "ws://10.0.0.62:3000";
 
 const STATUS = {
   WIN: "youwin",
